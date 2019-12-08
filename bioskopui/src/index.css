@@ -1,5 +1,13 @@
+/* div{
+  border: 1px solid pink;
+} */
+
+html{
+  width: 100%;
+}
 body {
   margin: 0;
+  width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -11,3 +19,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.card-text{
+  padding: 0 10px 0 0;
+  font-size: 14px;
+  line-height: 16x;
+}
+
+.gbr{
+  transition: 700ms;
+}
+
+.gbr:hover{
+  transform: scale(1.1);
+  border-radius: 10px;
+}
+
+.gambar{
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tbljudul {
+  text-align: center;
+  font-weight: bold;
+}
+

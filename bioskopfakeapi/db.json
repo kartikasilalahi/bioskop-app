@@ -1,64 +1,96 @@
 {
-    "users": [{
-            "id": 1,
-            "username": "admin",
-            "password": "123"
-        },
-        {
-            "id": 2,
-            "username": "kartika",
-            "password": "kartika"
-        },
-        {
-            "id": 3,
-            "username": "lala",
-            "password": "lala"
-        }
-    ],
-    "movies": [{
-            "id": 1,
-            "title": "Jumanji: The Next Level",
-            "sutradara": "Jake Kasdan",
-            "sinopsis": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji, keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah.Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
-            "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157380448937451_287x421.jpg",
-            "genre": "Action",
-            "produksi": "Columbia Pictures"
-        },
-        {
-            "id": 2,
-            "title": "Darah Daging",
-            "sutradara": "Sarjono Sutrisno",
-            "sinopsis": "Seberapa besar pengorbanan yang bisa Anda berikan untuk menyelamatkan Ibu yang telah merawat Anda dari kecil? Pertanyaan tersebut dibuktikan ketiga bersaudara: ARYA (Ario Bayu), RAHMAT (Rangga Nattra) dan FIKRI (Arnold Leonard) dengan melakukan perampokan bank, mereka mengajak sahabat Rahmat dari kecil, SALIM (Donny Alamsyah) ikut serta pula BORNE (Tanta Ginting), Perampokan tersebut tidak berlangsung sesuai rencana dan mengakibatkan SALIM ditangkap dan dihukum. 12 tahun berlalu, SALIM yang dijatuhi hukuman mati kedatangan seorang penulis perempuan, HANNA (Estelle Linden) yang tertarik mengangkat kisah perampokan tersebut ke dalam sebuah novel.",
-            "image": "https://media.21cineplex.com/webcontent/gallery/pictures/15743293802147_287x421.jpg",
-            "genre": "Drama, Action",
-            "produksi": "Skylar Pictures"
-        },
-        {
-            "id": 3,
-            "title": "Frozen II",
-            "sutradara": "Chris Buck, Jennifer Lee",
-            "sinopsis": "Anna, Elsa, Kristoff, Olaf dan Sven pergi meninggalkan Arendelle untuk melakukan perjalanan ke sebuah tempat asing dan penuh keajaiban. Mereka berangkat untuk menemukan asal usul kekuatan Elsa dan juga untuk menyelamatkan kerajaan mereka.",
-            "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157250534676979_287x421.jpg",
-            "genre": "Animation, Adventure, Comedy",
-            "produksi": "Walt Disney Pictures"
-        },
-        {
-            "id": 4,
-            "title": "Rumah Kentang: The Beginning",
-            "sutradara": "Rizal Mantovani",
-            "sinopsis": "Adrian adalah seorang penulis novel horor yang buku-bukunya mulai ditinggalkan pembacanya.Untuk menulis novel terbarunya, ia bersama istrinya, Sophie, memutuskan kembali ke rumah masa kecil Sophie yang sudah lama tidak dikunjungi Sophie, sejak kedua orang tua Sophie tiba-tiba menghilang tanpa jejak. Kini ditemani Uwa-nya dan ketiga anaknya; Nina, Nala dan Bayu; Sophie akhirnya menginjakkan kaki kembali di rumah tersebut. Namun sesampainya mereka disana, gangguan demi gangguan segera menyerang mereka. Gangguan yang mereka hiraukan pada awalnya sampai akhirnya anak tertua mereka, Nina, tiba-tiba juga menghilang tanpa jejak.Kini demi mendapatkan kembali Nina, Sophie dan Adrian harus mencari tahu apa yang sebenarnya terjadi di rumah ini, sebuah rumah yang berdiri di perkebunan kentang orang tua Sophie, terlebih ketika Uwa diberitahu oleh seorang warga desa Dadang, bahwa rumah itu lebih buruk dari apa yang mereka bayangkan. Bahwa tidak hanya Nina yang berada dalam bahaya. Tapi mereka semua.",
-            "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157129577038373_287x421.jpg",
-            "genre": "Horor",
-            "produksi": "Hitmaker Studios"
-        },
-        {
-            "id": 5,
-            "title": "THe Good Liar",
-            "sutradara": "Bill Condon",
-            "sinopsis": "Berawal dari perkenalan di situs kencan daring, Roy (Ian McKellen) seorang penipu ulung berhasil mendekati Betty, janda kaya raya dengan harta melimpah. Tapi hubungan keduanya mendapat respon keras dari keluarga Betty, yang menduga Roy punya niat jahat. Saat memulai misinya ternyata Roy justru jatuh cinta kepada Betty. Roy yang awalnya bisa menjalankan misinya dengan mudah, justru harus melalui melewati jalan yang bisa membahayakan dirinya.",
-            "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157423720057093_287x421.jpg",
-            "genre": "Drama",
-            "produksi": "Warner Bros. Pictures"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password": "123"
+    },
+    {
+      "id": 2,
+      "username": "kartika",
+      "password": "kartika"
+    },
+    {
+      "id": 3,
+      "username": "lala",
+      "password": "lala"
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "title": "Jumanji: The Next Level",
+      "sutradara": "Jake Kasdan",
+      "durasi": "123 menit",
+      "jadwal": [
+        "12:00",
+        "16:00"
+      ],
+      "sinopsis": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji, keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah.Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157380448937451_287x421.jpg",
+      "genre": "Action",
+      "produksi": "Columbia Pictures"
+    },
+    {
+      "title": "Last Christmas",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157285280844221_287x421.jpg",
+      "sinopsis": "Kate (Emilia Clarke) adalah seorang wanita muda yang mengambil keputusan buruk. Kencan terakhirnya berakhir dengan bencana? Saat diterima di sebuah toko pernak-pernik natal dan berperan sebagai Peri ia bertemu dengan Tom (Henry Golding), Hidupnya berubah lagi. Bagi Kate, sepertinya terlalu bagus untuk menjadi kenyataan.",
+      "jadwal": [
+        "12:00",
+        "14:00",
+        "16:00"
+      ],
+      "sutradara": "Paul Feig",
+      "durasi": "110 menit",
+      "genre": "Comedy, Drama, Romance",
+      "produksi": "Gatau",
+      "id": 2
+    },
+    {
+      "title": "Habibi & Ainun III",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157466395513352_287x421.jpg",
+      "sinopsis": "Kisah Ainun (Maudy Ayunda) sebagaimana remaja di usianya ,punya kisah kasih yang cukup unik, menggelitik dan menarik.Saat di SMA, Ainun dikenal sebagai sosok cerdas yang menjadi pujaan di sekolahnya dan menjadi incaran banyak siswa laki-laki, termasuk Habibie. Hubungan mereka bermula dari sebuah pertemanan. Di bangku kuliah Ainun, Sebagai mahasiswi kedokteran menjadi sosok yang popular di lingkungan kampusnya dan menjadi sosok dambaan setiap pria.Ahmad (Jefri Nichols), Pria tampan yang berasal dari keluarga terpandang dan kawan sekampus Ainun adalah pria yang akhirnya ia berani menyatakan cintanya kepada Ainun. Lantas apa yang membuat BJ Habibie menjadi pelabuhan terakhir perjalanan cinta Ainun. Habibie Ainun 3, Terinspirasi dari masa muda almarhumah Hasri Ainun Besari Habibie dan kenangan BJ Habibie atas belahan jiwanya.",
+      "jadwal": [
+        "16:00",
+        "18:00",
+        "20:00"
+      ],
+      "sutradara": "Hanung Bramantyo",
+      "durasi": "121 menit",
+      "genre": "Drama",
+      "produksi": "Ntah",
+      "id": 3
+    },
+    {
+      "title": "Knives Out",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157251774892294_287x421.jpg",
+      "sinopsis": "Harlan Thrombey (Christopher Plummer) adalah penulis novel misteri yang kaya raya. Di ulang tahunnya yang ke-85 ia tewas secara misterius.  Keluarga Harlan yang datang berkumpul kini menjadi tersangka. Mereka dicurigai oleh Detektif terkenal Benoit Blanc (Daniel Craig) yang datang untuk menyelidiki insiden ini.  Untuk memecahkan misteri kematian Harlan, sang detektif mulai berbicara kepada seluruh anggota keluarga dan menemukan siapa dalang pembunuhan sang novelis terkenal itu.       ",
+      "jadwal": [
+        "18:00",
+        "20:00"
+      ],
+      "sutradara": "Rian Johnson",
+      "durasi": "130 menit",
+      "genre": "Comedy, Crime, Drama",
+      "produksi": "Mongrel Media",
+      "id": 4
+    },
+    {
+      "title": "Frozen II",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157250534676979_287x421.jpg",
+      "sinopsis": "Anna, Elsa, Kristoff, Olaf dan Sven pergi meninggalkan Arendelle untuk melakukan perjalanan ke sebuah tempat asing dan penuh keajaiban. Mereka berangkat untuk menemukan asal usul kekuatan Elsa dan juga untuk menyelamatkan kerajaan mereka.",
+      "jadwal": [
+        "12:00",
+        "14:00",
+        "16:00",
+        "18:00",
+        "20:00"
+      ],
+      "sutradara": "Chris Buck, Jennifer Lee",
+      "durasi": "103 menit",
+      "genre": "Animation, Adventure, Comedy",
+      "produksi": "Walt Disney Pictures",
+      "id": 5
+    }
+  ]
 }

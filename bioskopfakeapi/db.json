@@ -14,22 +14,32 @@
       "id": 3,
       "username": "lala",
       "password": "lala"
+    },
+    {
+      "username": "as",
+      "password": "as",
+      "id": 4
+    },
+    {
+      "username": "asss",
+      "password": "asss",
+      "id": 5
     }
   ],
   "movies": [
     {
-      "id": 1,
       "title": "Jumanji: The Next Level",
-      "sutradara": "Jake Kasdan",
-      "durasi": "123 menit",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157380448937451_287x421.jpg",
+      "sinopsis": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji, keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah.Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
       "jadwal": [
         "12:00",
-        "16:00"
+        "14:00"
       ],
-      "sinopsis": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji, keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah.Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
-      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157380448937451_287x421.jpg",
+      "sutradara": "Jake Kasdan",
+      "durasi": "123 menit",
       "genre": "Action",
-      "produksi": "Columbia Pictures"
+      "produksi": "Columbia Pictures",
+      "id": 1
     },
     {
       "title": "Last Christmas",
@@ -66,10 +76,9 @@
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157251774892294_287x421.jpg",
       "sinopsis": "Harlan Thrombey (Christopher Plummer) adalah penulis novel misteri yang kaya raya. Di ulang tahunnya yang ke-85 ia tewas secara misterius.  Keluarga Harlan yang datang berkumpul kini menjadi tersangka. Mereka dicurigai oleh Detektif terkenal Benoit Blanc (Daniel Craig) yang datang untuk menyelidiki insiden ini.  Untuk memecahkan misteri kematian Harlan, sang detektif mulai berbicara kepada seluruh anggota keluarga dan menemukan siapa dalang pembunuhan sang novelis terkenal itu.       ",
       "jadwal": [
-        "18:00",
-        "20:00"
+        "18:00"
       ],
-      "sutradara": "Rian Johnson",
+      "sutradara": "Lupa gaes",
       "durasi": "130 menit",
       "genre": "Comedy, Crime, Drama",
       "produksi": "Mongrel Media",

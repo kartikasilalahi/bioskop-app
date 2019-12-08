@@ -119,12 +119,12 @@ class ManageAdmin extends Component {
     btnEdit=(index)=>{
         var editData = this.state.datafilm
         this.setState({modalEdit:true,indexedit:index, selectidEdit:editData[index].id})
-        console.log('INI ID YANG DI EDIT',editData[index].id)
+        // console.log('INI ID YANG DI EDIT',editData[index].id)
+        console.log('INI JAM YANG AKAN DI EDIT',editData[index].jadwal)
     }
     
     // FUNCTION EDIT/UPDATE DATA FILM
-    updateFilm=(index)=>{
-        // console.log("Ini data",this.state.datafilm)
+    updateFilm=()=>{
         var editjadwal = []
         var jadwaltemplate=["12:00","14:00","16:00","18:00","20:00"]
         for(var i = 0; i<jadwaltemplate.length;i++){
@@ -133,6 +133,7 @@ class ManageAdmin extends Component {
             }
         }
         const {datafilm, indexedit} = this.state
+        var jadwalAwal=datafilm[indexedit].jadwal
         var newdatafilm=this.state.datafilm
         var iniref=this.refs
         var edittitle=iniref.editTitle.value
@@ -142,11 +143,14 @@ class ManageAdmin extends Component {
         var editdurasi=iniref.editDurasi.value
         var editgenre=iniref.editGenre.value
         var editproduksi=iniref.editProduksi.value
-
+        console.log("ini awal",jadwalAwal)
+        console.log("ini akhir", editjadwal)
+        console.log(indexedit)
+        
+        if (editjadwal===[]) editjadwal=jadwalAwal
         if (edittitle  === "" ) edittitle=datafilm[indexedit]["title"]
         if (editimage === "") editimage=datafilm[indexedit]["image"]
         if (editsinopsis === "") editsinopsis=datafilm[indexedit]["sinopsis"]
-        if (editjadwal==="") editjadwal=datafilm[indexedit][`jadwal`]
         if (editsutradara==="") editsutradara=datafilm[indexedit]["sutradara"]
         if (editdurasi==="") editdurasi=datafilm[indexedit]["durasi"]
         if (editgenre==="") editgenre=datafilm[indexedit]["genre"]

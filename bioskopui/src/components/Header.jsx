@@ -20,30 +20,30 @@ const Header = props => {
 
     return (
         <div>
-        <Navbar color="light" light expand="xs">
-            <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <Navbar color="light" light expand="md">
+            <NavbarBrand href="/">Movies-App</NavbarBrand>
             <NavbarToggler onClick={toggle} />
             <Collapse isOpen={isOpen} navbar>
             <Nav className="ml-auto" navbar>
                 <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <NavLink href="/LamanLogin/">Login</NavLink>
                 </NavItem>
-                <NavItem>
+                {/* <NavItem>
                 <NavLink href="https://github.com/reactstrap/reactstrap">
                     GitHub
                 </NavLink>
                 </NavItem>
                 <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                    Options
+                    Akun
                 </DropdownToggle>
                 <DropdownMenu right>
-                    <DropdownItem>Option 1</DropdownItem>
-                    <DropdownItem>Option 2</DropdownItem>
+                    <DropdownItem>Masuk</DropdownItem>
+                    <DropdownItem>Daftar</DropdownItem>
                     <DropdownItem divider />
                     <DropdownItem>Reset</DropdownItem>
                 </DropdownMenu>
-                </UncontrolledDropdown>
+                </UncontrolledDropdown> */}
             </Nav>
             </Collapse>
         </Navbar>

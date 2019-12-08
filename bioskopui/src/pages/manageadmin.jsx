@@ -72,7 +72,11 @@ class ManageAdmin extends Component {
                 console.log(err)
             })
         } else {
-            alert("belum terisi")
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Lengkapi Data!'
+            })
         }
     }
     
@@ -142,7 +146,7 @@ class ManageAdmin extends Component {
         if (edittitle  === "" ) edittitle=datafilm[indexedit]["title"]
         if (editimage === "") editimage=datafilm[indexedit]["image"]
         if (editsinopsis === "") editsinopsis=datafilm[indexedit]["sinopsis"]
-        if (editjadwal==="") editjadwal=datafilm[indexedit]["jadwal"]
+        if (editjadwal==="") editjadwal=datafilm[indexedit][`jadwal`]
         if (editsutradara==="") editsutradara=datafilm[indexedit]["sutradara"]
         if (editdurasi==="") editdurasi=datafilm[indexedit]["durasi"]
         if (editgenre==="") editgenre=datafilm[indexedit]["genre"]
@@ -179,6 +183,7 @@ class ManageAdmin extends Component {
             icon: 'success',
             title: 'Berhasil Edit'
         })
+
     }
 
     // Function renderfilm

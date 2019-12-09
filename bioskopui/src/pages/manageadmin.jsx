@@ -14,7 +14,7 @@ class ManageAdmin extends Component {
         readmoreselected: -1,
         modalAdd:false,
         selectidDel:-1,
-        idexedit:-1,
+        indexedit:-1,
         selectidEdit:-1,
         modalEdit: false
     }
@@ -67,7 +67,6 @@ class ManageAdmin extends Component {
                 }).catch(err=>{
                     console.log(err)
                 })
-
             }).catch(err=>{
                 console.log(err)
             })
@@ -119,7 +118,7 @@ class ManageAdmin extends Component {
     btnEdit=(index)=>{
         var editData = this.state.datafilm
         this.setState({modalEdit:true,indexedit:index, selectidEdit:editData[index].id})
-        // console.log('INI ID YANG DI EDIT',editData[index].id)
+        console.log('INI ID YANG DI EDIT',editData[index].id)
         console.log('INI JAM YANG AKAN DI EDIT',editData[index].jadwal)
     }
     
@@ -145,16 +144,6 @@ class ManageAdmin extends Component {
         var editproduksi=iniref.editProduksi.value
         console.log("ini awal",jadwalAwal)
         console.log("ini akhir", editjadwal)
-        console.log(indexedit)
-        
-        if (editjadwal===[]) editjadwal=jadwalAwal
-        if (edittitle  === "" ) edittitle=datafilm[indexedit]["title"]
-        if (editimage === "") editimage=datafilm[indexedit]["image"]
-        if (editsinopsis === "") editsinopsis=datafilm[indexedit]["sinopsis"]
-        if (editsutradara==="") editsutradara=datafilm[indexedit]["sutradara"]
-        if (editdurasi==="") editdurasi=datafilm[indexedit]["durasi"]
-        if (editgenre==="") editgenre=datafilm[indexedit]["genre"]
-        if (editproduksi==="") editproduksi=datafilm[indexedit]["produksi"]
 
         var objnewdata = {
             title:edittitle,
@@ -245,20 +234,19 @@ class ManageAdmin extends Component {
                     <Modal isOpen={this.state.modalEdit} toggle={()=>this.setState({modalEdit:false})} >
                         <ModalHeader>Edit Film</ModalHeader>
                         <ModalBody>
-                            <input  type="text" ref="editTitle" placeholder="edit title" className="form-control mt-2"/>
-                            <input type="text" ref="editImage" placeholder="edit image" className="form-control mt-2"/>
-                            <input type="text" ref="editSinopsis" placeholder="edit sinopsis" className="form-control mt-2"/>
-                            <input type="text" ref="editJadwal" placeholder="edit jadwal" className="form-control mt-2"/>
+                            <input  type="text" defaultValue={datafilm[indexedit].title} ref="editTitle" placeholder="edit title" className="form-control mt-2"/>
+                            <input type="text" defaultValue={datafilm[indexedit].image} ref="editImage" placeholder="edit image" className="form-control mt-2"/>
+                            <input type="text" defaultValue={datafilm[indexedit].sinopsis} ref="editSinopsis" placeholder="edit sinopsis" className="form-control mt-2"/>
                             Jadwal: &nbsp;
                             <input type="checkbox" ref="editjadwal0"/>12.00 &nbsp;
                             <input type="checkbox" ref="editjadwal1"/>14.00 &nbsp;
                             <input type="checkbox" ref="editjadwal2"/>16.00 &nbsp;
                             <input type="checkbox" ref="editjadwal3"/>18.00 &nbsp;
                             <input type="checkbox" ref="editjadwal4"/>20.00
-                            <input type="text" ref="editSutradara" placeholder="edit sutradara" className="form-control mt-2"/>
-                            <input type="text" ref="editDurasi" placeholder="edit durasi" className="form-control mt-2"/>
-                            <input type="text" ref="editGenre" placeholder="edit genre" className="form-control mt-2"/>
-                            <input type="text" ref="editProduksi" placeholder="edit produksi" className="form-control mt-2"/>
+                            <input defaultValue={datafilm[indexedit].sutradara} type="text" ref="editSutradara" placeholder="edit sutradara" className="form-control mt-2"/>
+                            <input defaultValue={datafilm[indexedit].durasi} type="text" ref="editDurasi" placeholder="edit durasi" className="form-control mt-2"/>
+                            <input defaultValue={datafilm[indexedit].genre} type="text" ref="editGenre" placeholder="edit genre" className="form-control mt-2"/>
+                            <input defaultValue={datafilm[indexedit].produksi} type="text" ref="editProduksi" placeholder="edit produksi" className="form-control mt-2"/>
                         </ModalBody>
                         <ModalFooter>
                         <button onClick={this.updateFilm} className="btn btn-success" >Save</button>

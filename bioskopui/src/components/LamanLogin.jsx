@@ -71,7 +71,7 @@ class LamanLogin extends Component {
                     title: 'Berhasil!',
                     text: 'Anda Masuk Laman Admin.'
                 })
-            } if (inputPass === datauser[i].password && inputUser===datauser[i].username) {
+            } else if (inputPass === datauser[i].password && inputUser===datauser[i].username) {
                 this.setState({modalLogin:false,Login:true})
                 MySwal.fire({
                     icon: "success",
@@ -81,7 +81,6 @@ class LamanLogin extends Component {
             } else {
                 this.setState({Login:false})
                 console.log("error login")
-                
             }
         }
     }

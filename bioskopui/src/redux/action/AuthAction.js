@@ -4,3 +4,10 @@ export const LoginSuccessAction=(datauser)=>{
         payload: datauser
     }
 }
+
+export const OpenModalLogin=()=>{
+    return{
+        type: 'OPEN_MODALLOGIN',
+        payload: true
+    }
+}

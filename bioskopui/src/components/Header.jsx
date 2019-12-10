@@ -6,31 +6,25 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    NavLink,
-    UncontrolledDropdown,
-    DropdownToggle,
-    DropdownMenu,
-    DropdownItem
+    NavLink
 } from "reactstrap";
 
 import Swal from 'sweetalert2'
-// import withReactContent from 'sweetalert2-react-content'
 import {Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
 import Axios from 'axios'
 import { APIURL } from '../support/APiUrl';
-import {Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {LoginSuccessAction}  from '../redux/action'
+import {LoginSuccessAction, OpenModalLogin}  from '../redux/action'
 
 class Header extends Component {
     state = {  
         isOpen: false,
         setIsOpen: false, 
-        modalLogin: false,
+        // Login: false,
         pesanError: ''
     }
 
-    // function button klik login
+    // function button klik LOGIN
     btnLogin=()=>{
         var username=this.refs.username.value 
         var password=this.refs.password.value
@@ -44,7 +38,10 @@ class Header extends Component {
                     title: `Selamat Datang ${username}!`,
                     text: 'Anda berhasil Login.'
                 })
-                this.setState({modalLogin:false})
+                // this.setState({modalLogin:false})
+                // this.props.OpenModalLogin(true)
+                // console.log(this.props.OpenModalLogin(true))
+
             } else {
                 this.setState({pesanError:`Username atau Password Anda salah 
                 Atau mungkin User ${username} belum terdaftar. Coba Lagi!`})
@@ -59,6 +56,8 @@ class Header extends Component {
         })
     }
 
+    // toggle={()=>(this.props.modalLogin:false)}
+
     render() { 
         const {isOpen, setIsOpen} = this.state
         const toggle = () => setIsOpen(!isOpen);
@@ -67,10 +66,13 @@ class Header extends Component {
             <div>
                 {/* Modal TAMPILAN LOGIN */}
                 {
-                    this.state.modalLogin===false ? 
-                    null
+                    this.props.modalLogin===false ?
+                    <div>
+                        {console.log(false)}
+                    </div>
                     :
-                    <Modal isOpen={this.state.modalLogin} toggle={()=>this.setState({modalLogin:false})}>
+                    <Modal isOpen={this.props.modalLogin}>
+                        {console.log(true)}
                         <ModalHeader>Laman Login</ModalHeader>
                         <ModalBody>
                             <input type="text" ref="username" placeholder="Enter username" className="form-control mt-2" />
@@ -93,7 +95,7 @@ class Header extends Component {
                 {this.props.role==='' ?
                 (
                     <NavItem>
-                        <NavLink style={{cursor:"pointer"}} onClick={()=>this.setState({modalLogin:true})}>Login</NavLink>
+                        <NavLink style={{cursor:"pointer"}} onClick={()=>this.props.OpenModalLogin(true)}>Login</NavLink>
                     </NavItem>
                 ) : this.props.role==='admin' ?
                 (
@@ -120,7 +122,8 @@ const mapStateToProps=(state)=>{
     return {
         AuthLogin:state.Auth.login,
         username:state.Auth.username,
-        role:state.Auth.role
+        role:state.Auth.role,
+        modalLogin: state.modalLogin
     }
 }
-export default connect(mapStateToProps, {LoginSuccessAction})(Header);
+export default connect(mapStateToProps, {LoginSuccessAction, OpenModalLogin})(Header);

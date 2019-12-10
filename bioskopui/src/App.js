@@ -9,6 +9,7 @@ import {} from './redux/action'
 import Axios from 'axios'
 import {APIURL} from './support/APiUrl'
 import {LoginSuccessAction} from './redux/action'
+import Moviedetail from './pages/movie-detail';
 
 class App extends Component {
   state={
@@ -17,7 +18,6 @@ class App extends Component {
 
   componentDidMount(){
     var id=localStorage.getItem('ini-key')
-    console.log(id)
     Axios.get(`${APIURL}users/${id}`)
     .then((res)=>{
       this.props.LoginSuccessAction(res.data)
@@ -31,10 +31,11 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
+        
         <Switch>
-          {/* <Route exact path={'/LoginForm'}> <LoginForm/> </Route> */}
           <Route exact path={'/'} > <Home/> </Route>
           <Route exact path={'/manageadmin'} ><ManageAdmin/> </Route>
+          <Route exact path='/moviedetail/:id' component={Moviedetail}/>
         </Switch>
       </div>
     );

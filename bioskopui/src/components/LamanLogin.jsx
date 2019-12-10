@@ -4,6 +4,7 @@ import withReactContent from 'sweetalert2-react-content'
 import {Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
 import Axios from 'axios'
 import { APIURL } from '../support/APiUrl';
+import {Redirect} from 'react-router-dom'
 
 const MySwal = withReactContent(Swal)
 
@@ -11,7 +12,8 @@ class LamanLogin extends Component {
     state = {  
         datauser:[],
         modalLogin:true,
-        Login:false
+        login:false,
+        role: ''
     }
 
     componentDidMount(){
@@ -59,34 +61,38 @@ class LamanLogin extends Component {
     }
 
     btnLogin=()=>{
-        const {datauser,Login} = this.state
+        const {datauser} = this.state
         var inputUser = this.refs.username.value 
         var inputPass = this.refs.password.value 
-        console.log(inputUser)
+        console.log(datauser.length)
         for(var i = 0; i < datauser.length; i++){
             if (inputPass === datauser[i].password && inputUser==="admin" ) {
-                this.setState({modalLogin:false, Login:true})
+                this.setState({modalLogin:false,login:true, role:"admin"})
                 MySwal.fire({
                     icon: "success",
                     title: 'Berhasil!',
                     text: 'Anda Masuk Laman Admin.'
                 })
             } else if (inputPass === datauser[i].password && inputUser===datauser[i].username) {
-                this.setState({modalLogin:false,Login:true})
+                this.setState({modalLogin:false, login:true, role: "user"})
                 MySwal.fire({
                     icon: "success",
                     title: 'Berhasil!',
                     text: 'Anda Masuk Laman User.'
                 })
             } else {
-                this.setState({Login:false})
-                console.log("error login")
+                console.log("gagal login")    
+                
             }
         }
     }
 
-
     render() { 
+        if (this.state.login && this.state.role==="admin") {
+            return <Redirect to="/manageadmin"/>
+        } else if (this.state.login && this.state.role==="user") {
+            return <Redirect to="/"/>
+        }
         return (  
             <div>
                 <Modal isOpen={this.state.modalLogin} toggle={()=>this.setState({modalLogin:false})}>

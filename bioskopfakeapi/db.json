@@ -3,27 +3,37 @@
     {
       "id": 1,
       "username": "admin",
-      "password": "123"
+      "password": "123",
+      "role": "admin"
     },
     {
       "id": 2,
       "username": "kartika",
-      "password": "kartika"
+      "password": "kartika",
+      "role": "user"
     },
     {
       "id": 3,
       "username": "lala",
-      "password": "lala"
+      "password": "lala",
+      "role": "user"
+    }
+  ],
+  "studios": [
+    {
+      "id": 1,
+      "nama": "Studio 1",
+      "jumlahKursi": 260
     },
     {
-      "username": "as",
-      "password": "as",
-      "id": 4
+      "id": 2,
+      "nama": "Studio 2",
+      "jumlahKursi": 240
     },
     {
-      "username": "asss",
-      "password": "asss",
-      "id": 5
+      "id": 3,
+      "nama": "Studio 3",
+      "jumlahKursi": 200
     }
   ],
   "movies": [
@@ -32,8 +42,11 @@
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157380448937451_287x421.jpg",
       "sinopsis": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji, keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah.Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
       "jadwal": [
-        "18:00"
+        14,
+        16
       ],
+      "trailer": "",
+      "studioId": "3",
       "sutradara": "Jake Kasdan",
       "durasi": "1111 menit",
       "genre": "Action",
@@ -45,58 +58,50 @@
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157285280844221_287x421.jpg",
       "sinopsis": "Kate (Emilia Clarke) adalah seorang wanita muda yang mengambil keputusan buruk. Kencan terakhirnya berakhir dengan bencana? Saat diterima di sebuah toko pernak-pernik natal dan berperan sebagai Peri ia bertemu dengan Tom (Henry Golding), Hidupnya berubah lagi. Bagi Kate, sepertinya terlalu bagus untuk menjadi kenyataan.",
       "jadwal": [
-        "12:00",
-        "14:00",
-        "16:00"
+        12,
+        14,
+        16
       ],
       "sutradara": "Paul Feig",
       "durasi": "110 menit",
       "genre": "Comedy, Drama, Romance",
       "produksi": "Gatau",
-      "id": 2
+      "id": 2,
+      "trailer": "",
+      "studioId": 2
     },
     {
       "title": "Habibi & Ainun III",
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157466395513352_287x421.jpg",
       "sinopsis": "Kisah Ainun (Maudy Ayunda) sebagaimana remaja di usianya ,punya kisah kasih yang cukup unik, menggelitik dan menarik.Saat di SMA, Ainun dikenal sebagai sosok cerdas yang menjadi pujaan di sekolahnya dan menjadi incaran banyak siswa laki-laki, termasuk Habibie. Hubungan mereka bermula dari sebuah pertemanan. Di bangku kuliah Ainun, Sebagai mahasiswi kedokteran menjadi sosok yang popular di lingkungan kampusnya dan menjadi sosok dambaan setiap pria.Ahmad (Jefri Nichols), Pria tampan yang berasal dari keluarga terpandang dan kawan sekampus Ainun adalah pria yang akhirnya ia berani menyatakan cintanya kepada Ainun. Lantas apa yang membuat BJ Habibie menjadi pelabuhan terakhir perjalanan cinta Ainun. Habibie Ainun 3, Terinspirasi dari masa muda almarhumah Hasri Ainun Besari Habibie dan kenangan BJ Habibie atas belahan jiwanya.",
       "jadwal": [
-        "16:00"
+        16,
+        18,
+        20
       ],
+      "trailer": "",
+      "studioId": "1",
       "sutradara": "Hanung Bramantyo",
       "durasi": "121 menit",
       "genre": "Drama",
-      "produksi": "Ntah",
+      "produksi": "Lupa",
       "id": 3
     },
     {
-      "title": "Knives Out",
-      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157251774892294_287x421.jpg",
-      "sinopsis": "Harlan Thrombey (Christopher Plummer) adalah penulis novel misteri yang kaya raya. Di ulang tahunnya yang ke-85 ia tewas secara misterius.  Keluarga Harlan yang datang berkumpul kini menjadi tersangka. Mereka dicurigai oleh Detektif terkenal Benoit Blanc (Daniel Craig) yang datang untuk menyelidiki insiden ini.  Untuk memecahkan misteri kematian Harlan, sang detektif mulai berbicara kepada seluruh anggota keluarga dan menemukan siapa dalang pembunuhan sang novelis terkenal itu.       ",
+      "title": "Charlie's Angle",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157224569350378_287x421.jpg",
+      "sinopsis": "sadffghghjhklkll gdhjskla vdjb xjoljxsl.",
       "jadwal": [
-        "18:00"
+        18,
+        20
       ],
-      "sutradara": "Lupa gaes",
-      "durasi": "130 menit",
-      "genre": "Comedy, Crime, Drama",
-      "produksi": "Mongrel Media",
+      "trailer": "",
+      "studioId": "3",
+      "sutradara": "asdf",
+      "durasi": "120 menit",
+      "genre": "asddfgh",
+      "produksi": "asdffgg",
       "id": 4
-    },
-    {
-      "title": "Frozen II",
-      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157250534676979_287x421.jpg",
-      "sinopsis": "Anna, Elsa, Kristoff, Olaf dan Sven pergi meninggalkan Arendelle untuk melakukan perjalanan ke sebuah tempat asing dan penuh keajaiban. Mereka berangkat untuk menemukan asal usul kekuatan Elsa dan juga untuk menyelamatkan kerajaan mereka.",
-      "jadwal": [
-        "12:00",
-        "14:00",
-        "16:00",
-        "18:00",
-        "20:00"
-      ],
-      "sutradara": "Chris Buck, Jennifer Lee",
-      "durasi": "103 menit",
-      "genre": "Animation, Adventure, Comedy",
-      "produksi": "Walt Disney Pictures",
-      "id": 5
     }
   ]
 }

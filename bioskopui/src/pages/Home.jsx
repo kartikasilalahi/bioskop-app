@@ -33,11 +33,7 @@ class Home extends Component {
                             <Link to={'/moviedetail/'+val.id}>
                                 <img src={val.image} className="card-img-top kartu gbr" alt={val.title}/>
                             </Link>
-                            <Link to={'/moviedetail/'+val.id}>
-                                <center><button disabled className="btn btn-warning mx-auto p-0" 
-                                style={{zIndex:2, position:"absolute", top:10, right:8, borderRadius:"100%", fontSize:"10px", fontWeight:"bolder", lineHeight:'14px', height:"35px", width:"35px"}}
-                                >{durasi}</button> </center>
-                            </Link>
+                            
                         </div>
                     </div>
                         <div className="card-body">

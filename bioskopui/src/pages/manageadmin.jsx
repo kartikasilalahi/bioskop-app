@@ -5,6 +5,9 @@ import { APIURL } from '../support/APiUrl';
 import {Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom'
+// import Managestudio from '../pages/managestudio'
 
 const MySwal = withReactContent(Swal)
 
@@ -17,15 +20,25 @@ class ManageAdmin extends Component {
         indexedit:-1,
         selectidEdit:-1,
         modalEdit: false,
-        jadwal:[12,14,16,18,20]
+        jadwal:[12,14,16,18,20],
+        datasudio:[]
     }
 
     componentDidMount(){
         Axios.get(`${APIURL}movies`)
         .then(res=>{
-            this.setState({datafilm:res.data})
-        })
-        .catch(err=>{
+            Axios.get(`${APIURL}studios`)
+            .then(res1=>{
+                this.setState({
+                    datafilm:res.data,
+                    datastudio:res1.data
+                })
+                console.log(this.state.datastudio)
+            })
+            .catch(err1=>{
+                console.log(err1)
+            })
+        }).catch(err=>{
             console.log(err)
         })
     }
@@ -109,6 +122,7 @@ class ManageAdmin extends Component {
                     'success'
                 )
                 Axios.delete(`${APIURL}movies/${this.state.selectidDel}`)
+                
             } else if (result.dismiss === Swal.DismissReason.cancel) {
                 MySwal.fire(
                     'Cancelled',
@@ -191,21 +205,21 @@ class ManageAdmin extends Component {
         return this.state.datafilm.map((val,index)=>{
             return(
                 <TableRow key={index} >
-                    <TableCell>{index+1}</TableCell>
-                    <TableCell align="center" style={{fontWeight:"bolder"}} >{val.title}</TableCell>
-                    <TableCell align="center"><img src={val.image} alt={val.title} height='200px'/></TableCell>
+                    <TableCell style={{color:'white'}} >{index+1}</TableCell>
+                    <TableCell align="center" style={{fontWeight:"bolder", color:'white'}} >{val.title}</TableCell>
+                    <TableCell style={{color:'white'}} align="center"><img src={val.image} alt={val.title} height='200px'/></TableCell>
                         {   val.sinopsis.split('').length<=50?
-                            <TableCell align="left" style={{width: "270px"}}>
+                            <TableCell align="left" style={{width: "270px", color:'white'}}>
                                 {val.sinopsis}
                             </TableCell>
                             :
-                            readmoreselected==index ? 
-                            <TableCell align="left" style={{width: "270px"}}>
+                            readmoreselected===index ? 
+                            <TableCell align="left" style={{width: "270px", color:'white'}}>
                                 {val.sinopsis}
                                 <span onClick={()=>this.setState({readmoreselected:-1})} style={{color:'#1E90FF', cursor:"pointer"}}>read less</span>
                             </TableCell>
                             :
-                            <TableCell align="left" style={{width: "270px"}}>
+                            <TableCell align="left" style={{width: "270px", color:'white'}}>
                                 {val.sinopsis.split('').filter((val,index)=>index<=50)} 
                                 <span onClick={()=>this.setState({readmoreselected:index})} style={{color:'#1E90FF', cursor:"pointer"}}>read more..</span>
                             </TableCell>
@@ -216,13 +230,13 @@ class ManageAdmin extends Component {
                     })}
                     </TableCell>
                     
-                    <TableCell align="center" style={{width:"60px"}}>{val.sutradara}</TableCell>
-                    <TableCell align="center" style={{width:"60px"}}>{val.durasi}</TableCell>
-                    <TableCell align="center" style={{width:"60px"}}>{val.genre}</TableCell>
-                    <TableCell align="center" style={{width:"60px"}}>{val.produksi}</TableCell>
+                    <TableCell align="center" style={{width:"60px", color:"white"}}>{val.sutradara}</TableCell>
+                    <TableCell align="center" style={{width:"60px", color:"white"}}>{val.durasi}</TableCell>
+                    <TableCell align="center" style={{width:"60px", color:"white"}}>{val.genre}</TableCell>
+                    <TableCell align="center" style={{width:"60px", color:"white"}}>{val.produksi}</TableCell>
                     <TableCell>
-                        <button onClick={()=>this.btnEdit(index)} className="btn btn-outline-primary mb-2" style={{height:"2rem", lineHeight:"14px"}}>Edit</button> <br/>
-                        <button onClick={()=>this.btnDelete(index)} className="btn btn-outline-danger" style={{height:"2rem", lineHeight:"14px"}}>Delete</button>
+                        <button onClick={()=>this.btnEdit(index)} className="btn btn-primary mb-2" style={{height:"2rem", lineHeight:"14px"}}>Edit</button> <br/>
+                        <button onClick={()=>this.btnDelete(index)} className="btn btn-danger" style={{height:"2rem", lineHeight:"14px"}}>Delete</button>
                     </TableCell>
                 </TableRow>
             )
@@ -283,13 +297,14 @@ class ManageAdmin extends Component {
 
     // jalankan RENDER
     render() { 
+        if (this.props.role==="admin"){
         const {datafilm,indexedit}=this.state 
         const {length} = datafilm
         if (length===0) {
             return <div>Loadingg...</div>
         }
         return (  
-            <div> 
+            <div className='container'> 
                 {/* MODAL EDIT */}
                 {   indexedit === -1 ? 
                     null
@@ -323,7 +338,8 @@ class ManageAdmin extends Component {
                 }
 
                 {/* MODAL ADD FILM */}
-                <button onClick={()=>this.setState({modalAdd:true})} className="btn btn-success">Add Data</button>
+                <button onClick={()=>this.setState({modalAdd:true})} className="btn btn-success mt-4">Add Data</button>
+                
                 <Modal isOpen={this.state.modalAdd} toggle={()=>this.setState({modalAdd:false})}>
                     <ModalHeader>Add Data</ModalHeader>
                     <ModalBody>
@@ -336,9 +352,11 @@ class ManageAdmin extends Component {
                         </div>
                         <input type="text" ref="trailer" placeholder="Trailer" className="form-control mt-2" />
                         <select ref="studio" className="form-control mt-2">
-                            <option value="1">Studio 1</option>
-                            <option value="2">Studio 2</option>
-                            <option value="3">Studio 3</option>
+                            {
+                                this.state.datastudio.map((val)=>{
+                                    return ( <option value={val.id}>{val.nama}</option>)
+                                })
+                            }
                         </select>
                         <input type="text" ref="sutradara" placeholder="Sutradara" className="form-control mt-2" />
                         <input type="text" ref="durasi" placeholder="Durasi" className="form-control mt-2" />
@@ -356,16 +374,16 @@ class ManageAdmin extends Component {
                 <Table className="mt-4 mx-auto w-75">
                     <TableHead >
                         <TableRow className="tabelheader" >
-                            <TableCell className="tbljudul">No.</TableCell>
-                            <TableCell className="tbljudul">Judul</TableCell>
-                            <TableCell className="tbljudul">Gambar</TableCell>
-                            <TableCell className="tbljudul">Sinopsis</TableCell>
-                            <TableCell className="tbljudul">Jadwal</TableCell>
-                            <TableCell className="tbljudul">Sutradara</TableCell>
-                            <TableCell className="tbljudul">Durasi</TableCell>
-                            <TableCell className="tbljudul">Genre</TableCell>
-                            <TableCell className="tbljudul">Produksi</TableCell>
-                            <TableCell className="tbljudul">Action</TableCell>
+                            <TableCell className="tbljudul" style={{color:'white'}}>No.</TableCell>
+                            <TableCell className="tbljudul" style={{color:'white'}}>Judul</TableCell>
+                            <TableCell className="tbljudul" style={{color:'white'}}>Gambar</TableCell>
+                            <TableCell className="tbljudul" style={{color:'white'}}>Sinopsis</TableCell>
+                            <TableCell className="tbljudul" style={{color:'white'}}>Jadwal</TableCell>
+                            <TableCell className="tbljudul" style={{color:'white'}}>Sutradara</TableCell>
+                            <TableCell className="tbljudul" style={{color:'white'}}>Durasi</TableCell>
+                            <TableCell className="tbljudul" style={{color:'white'}}>Genre</TableCell>
+                            <TableCell className="tbljudul" style={{color:'white'}}>Produksi</TableCell>
+                            <TableCell className="tbljudul" style={{color:'white'}}>Action</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody className="tabelbody">
@@ -375,6 +393,16 @@ class ManageAdmin extends Component {
             </div>
         );
     }
+    return(
+        <Redirect to={'/notfound'} />
+    )
+    }
 }
 
-export default ManageAdmin;
+const MapstateToProps=(state)=>{
+    return{
+        role:state.Auth.role
+    }
+}
+
+export default connect(MapstateToProps) (ManageAdmin);

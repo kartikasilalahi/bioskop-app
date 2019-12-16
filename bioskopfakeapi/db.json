@@ -7,16 +7,22 @@
       "role": "admin"
     },
     {
-      "id": 2,
       "username": "kartika",
-      "password": "kartika",
-      "role": "user"
+      "password": "12",
+      "role": "user",
+      "id": 2
     },
     {
-      "id": 3,
       "username": "lala",
       "password": "lala",
-      "role": "user"
+      "role": "user",
+      "id": 3
+    },
+    {
+      "username": "abc",
+      "password": "abc",
+      "role": "user",
+      "id": 4
     }
   ],
   "studios": [
@@ -42,18 +48,19 @@
       "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157380448937451_287x421.jpg",
       "sinopsis": "Dwayne Johnson, Karen Gillan, Jack Black dan Kevin Hart kembali ke Jumanji, keempatnya harus menyelamatkan salah satu teman mereka. Namun permainan telah berubah.Para pemain kini harus lebih berani melintasi rintangan ekstrem dan kembali dengan selamat dari permainan paling berbahaya di dunia.",
       "jadwal": [
+        12,
         14,
         16,
         18,
         20
       ],
       "trailer": "",
-      "studioId": "2",
+      "studioId": "1",
       "sutradara": "Jake Kasdan",
-      "durasi": "1111 menit",
+      "durasi": "140 menit",
       "genre": "Action",
       "produksi": "Columbia Pictures",
-      "id": 1
+      "id": 2
     },
     {
       "title": "Last Christmas",
@@ -68,25 +75,8 @@
       "durasi": "110 menit",
       "genre": "Comedy, Drama, Romance",
       "produksi": "Gatau",
-      "id": 2,
-      "trailer": "",
-      "studioId": 2
-    },
-    {
-      "title": "Habibi & Ainun III",
-      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157466395513352_287x421.jpg",
-      "sinopsis": "Kisah Ainun (Maudy Ayunda) sebagaimana remaja di usianya ,punya kisah kasih yang cukup unik, menggelitik dan menarik.Saat di SMA, Ainun dikenal sebagai sosok cerdas yang menjadi pujaan di sekolahnya dan menjadi incaran banyak siswa laki-laki, termasuk Habibie. Hubungan mereka bermula dari sebuah pertemanan. Di bangku kuliah Ainun, Sebagai mahasiswi kedokteran menjadi sosok yang popular di lingkungan kampusnya dan menjadi sosok dambaan setiap pria.Ahmad (Jefri Nichols), Pria tampan yang berasal dari keluarga terpandang dan kawan sekampus Ainun adalah pria yang akhirnya ia berani menyatakan cintanya kepada Ainun. Lantas apa yang membuat BJ Habibie menjadi pelabuhan terakhir perjalanan cinta Ainun. Habibie Ainun 3, Terinspirasi dari masa muda almarhumah Hasri Ainun Besari Habibie dan kenangan BJ Habibie atas belahan jiwanya.",
-      "jadwal": [
-        16,
-        18,
-        20
-      ],
-      "trailer": "",
-      "studioId": "1",
-      "sutradara": "Hanung Bramantyo",
-      "durasi": "121 menit",
-      "genre": "Drama",
-      "produksi": "Lupa",
+      "trailer": "https://www.youtube.com/embed/z9CEIcmWmtA",
+      "studioId": 2,
       "id": 3
     },
     {
@@ -97,13 +87,183 @@
         18,
         20
       ],
-      "trailer": "",
+      "trailer": "https://www.youtube.com/embed/RSUq4VfWfjE",
       "studioId": "3",
       "sutradara": "asdf",
       "durasi": "120 menit",
       "genre": "asddfgh",
       "produksi": "asdffgg",
       "id": 4
+    },
+    {
+      "title": "Star Wars",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157466395513352_287x421.jpg",
+      "sinopsis": "Resistance yang selamat sekali lagi akan menghadapi First Order dalam sebuah saga final yang akan menentukan nasib mereka.",
+      "jadwal": [
+        14,
+        16,
+        18,
+        20
+      ],
+      "trailer": "https://www.youtube.com/embed/RSUq4VfWfjE",
+      "studioId": "1",
+      "sutradara": "J.J. Abrams",
+      "durasi": "130 menit",
+      "genre": "Action, Adventure, Fantasy",
+      "produksi": "Walt Disney Pictures",
+      "id": 5
+    },
+    {
+      "title": "Frozen 2",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157250534676979_287x421.jpg",
+      "sinopsis": "Anna, Elsa, Kristoff, Olaf dan Sven pergi meninggalkan Arendelle untuk melakukan perjalanan ke sebuah tempat asing dan penuh keajaiban. Mereka berangkat untuk menemukan asal usul kekuatan Elsa dan juga untuk menyelamatkan kerajaan mereka",
+      "sutradara": "Chris Buck, Jennifer Lee",
+      "genre": "Animation, Adventure, Comedy",
+      "durasi": "103 menit",
+      "produksi": "Walt Disney Pictures",
+      "jadwal": [
+        12,
+        14,
+        16
+      ],
+      "trailer": "https://www.youtube.com/embed/RSUq4VfWfjE",
+      "studioId": "1",
+      "id": 6
+    },
+    {
+      "title": "Knives Out",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157251774892294_287x421.jpg",
+      "sinopsis": "Harlan Thrombey (Christopher Plummer) adalah penulis novel misteri yang kaya raya. Di ulang tahunnya yang ke-85 ia tewas secara misterius. Keluarga Harlan yang datang berkumpul kini menjadi tersangka. Mereka dicurigai oleh Detektif terkenal Benoit Blanc (Daniel Craig) yang datang untuk menyelidiki insiden ini. Untuk memecahkan misteri kematian Harlan, sang detektif mulai berbicara kepada seluruh anggota keluarga dan menemukan siapa dalang pembunuhan sang novelis terkenal itu.",
+      "sutradara": "Rian Johnson",
+      "genre": "Comedy, Crime, Drama",
+      "durasi": "130 menit",
+      "produksi": "Mongrel Media",
+      "jadwal": [
+        12,
+        14,
+        18
+      ],
+      "trailer": "https://www.youtube.com/embed/RSUq4VfWfjE",
+      "studioId": "3",
+      "id": 7
+    },
+    {
+      "title": "Ford v Ferrari",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/1572858859730_287x421.jpg",
+      "sinopsis": "2 pemenang Academy Award, Matt Damon dan Christian Bale berperan di FORD v FERRARI, berdasarkan kisah nyata yang luar biasa dari Carroll Shelby (Damon), seorang perancang mobil visioner dari Amerika bersama Ken Miles (Bale), seorang pembalap Inggris yang tak kenal takut. Mereka bersama-sama berjuang menghadapi campur tangan perusahaan, hukum fisika, dan masalah pribadi mereka sendiri ketika membangun mobil balap revolusioner bagi Ford Motor Company untuk menantang mobil balap buatan Enzo Ferrari yang mendomniasi 24 Jam Le Mans di Perancis pada tahun 1966.",
+      "sutradara": "James Mangold",
+      "genre": "Action, Biography, Drama",
+      "durasi": "152 menit",
+      "produksi": "20th Century Fox",
+      "jadwal": [
+        12,
+        16,
+        18
+      ],
+      "trailer": "https://www.youtube.com/embed/RSUq4VfWfjE",
+      "studioId": "2",
+      "id": 8
+    },
+    {
+      "title": "Eggnoid",
+      "image": "https://media.21cineplex.com/webcontent/gallery/pictures/157356145959988_287x421.jpg",
+      "sinopsis": "Selama 2 tahun terakhir Ran dan Eggy telah menjadi sepasang sahabat yang tak terpisahkan. Ran yang dulu kesepian dan penuh dengan kesedihan, kini menjadi sosok yang lebih bahagia karena Eggy. Perasaan yang awalnya hanya sebagai sahabat, pelan-pelan berubah menjadi cinta. Sayangnya, Eggy bukan manusia biasa. Melainkan Eggnoid yang dikirim dari masa depan. Sebagai Eggnoid, Eggy memiliki aturan-aturan yang tidak boleh dilanggar. Kini, Eggy terancam dikirim pulang ke masa depan dan berpisah dengan Ran selamanya karena salah satu aturan besar yang tidak boleh ia langgar adalah jatuh cinta dan pacaran dengan Ran.",
+      "sutradara": "Naya Anandita",
+      "genre": "Drama, Sci-Fi",
+      "durasi": "103 menit",
+      "produksi": "Visinema Pictures",
+      "jadwal": [
+        18,
+        22
+      ],
+      "trailer": "https://www.youtube.com/embed/RSUq4VfWfjE",
+      "studioId": "3",
+      "id": 9
     }
-  ]
+  ],
+  "orders": [
+    {
+      "userId": 2,
+      "movieId": 2,
+      "totalharga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 1
+    },
+    {
+      "userId": 2,
+      "movieId": 2,
+      "totalharga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 2
+    },
+    {
+      "userId": 2,
+      "movieId": 3,
+      "totalharga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "movieId": 4,
+      "totalharga": 50000,
+      "jadwal": 12,
+      "bayar": false,
+      "id": 4
+    }
+  ],
+  "ordersDetails": [
+    {
+      "orderId": 1,
+      "seat": 9,
+      "row": 0,
+      "id": 1
+    },
+    {
+      "orderId": 1,
+      "seat": 10,
+      "row": 0,
+      "id": 2
+    },
+    {
+      "orderId": 2,
+      "seat": 9,
+      "row": 1,
+      "id": 3
+    },
+    {
+      "orderId": 2,
+      "seat": 10,
+      "row": 1,
+      "id": 4
+    },
+    {
+      "orderId": 3,
+      "seat": 9,
+      "row": 2,
+      "id": 5
+    },
+    {
+      "orderId": 3,
+      "seat": 10,
+      "row": 2,
+      "id": 6
+    },
+    {
+      "orderId": 4,
+      "seat": 9,
+      "row": 6,
+      "id": 7
+    },
+    {
+      "orderId": 4,
+      "seat": 10,
+      "row": 6,
+      "id": 8
+    }
+  ],
+  "transactions": []
 }

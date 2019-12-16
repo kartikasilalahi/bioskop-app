@@ -28,6 +28,7 @@
     "react-slick": "^0.25.2",
     "reactstrap": "^8.1.1",
     "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
     "semantic-ui-react": "^0.88.2",
     "sweetalert2": "^9.4.3",
     "sweetalert2-react-content": "^2.0.2"

@@ -1,129 +1,141 @@
 import React, { Component } from 'react';
-import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink
+import {Link} from 'react-router-dom'
+import { Collapse, 
+    Navbar, 
+    NavbarToggler, 
+    NavbarBrand, 
+    Nav, 
+    NavItem, 
+    // NavLink,
+    UncontrolledDropdown,
+    DropdownToggle,
+    DropdownMenu,
+    DropdownItem
 } from "reactstrap";
-
-import Swal from 'sweetalert2'
-import {Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
-import Axios from 'axios'
-import { APIURL } from '../support/APiUrl';
 import {connect} from 'react-redux'
-import {LoginSuccessAction, OpenModalLogin}  from '../redux/action'
+import {LogoutSuccessAction} from '../redux/action'
+import Swal from "sweetalert2";
+import {FaCartPlus, FaUserCircle, FaUserCog} from 'react-icons/fa'
+import managestudio from '../pages/managestudio';
+// import {Redirect} from 'react-router-dom'
+
 
 class Header extends Component {
     state = {  
         isOpen: false,
         setIsOpen: false, 
-        // Login: false,
-        pesanError: ''
     }
 
-    // function button klik LOGIN
-    btnLogin=()=>{
-        var username=this.refs.username.value 
-        var password=this.refs.password.value
-        Axios.get(`${APIURL}users?username=${username}&password=${password}`)
-        .then((res)=>{
-            if (res.data.length) {
-                localStorage.setItem("ini-key", res.data[0].id)
-                this.props.LoginSuccessAction(res.data[0])
+    btnLogout=()=>{
+        Swal.fire({
+            title: 'Are you sure to logout?',
+            icon: 'warning',
+            showCancelButton: 'true',
+            confirmButtonText: "Logout!"
+        }).then(result=>{
+            if (result.value) {
                 Swal.fire({
-                    icon: "success",
-                    title: `Selamat Datang ${username}!`,
-                    text: 'Anda berhasil Login.'
+                    title:'Logging out',
+                    timer: 1800,
+                    allowOutsideClick: false,
+                    timerProgressBar: true,
+                    onBeforeOpen: () => {
+                        Swal.showLoading()
+                    }
                 })
-                // this.setState({modalLogin:false})
-                // this.props.OpenModalLogin(true)
-                // console.log(this.props.OpenModalLogin(true))
-
-            } else {
-                this.setState({pesanError:`Username atau Password Anda salah 
-                Atau mungkin User ${username} belum terdaftar. Coba Lagi!`})
-                Swal.fire({
-                    icon: "error",
-                    title: 'Gagal',
-                    text: this.state.pesanError
+                .then(()=>{
+                    Swal.fire({
+                        title:'Logout',
+                        icon: 'success',
+                        showConfirmButton: false,
+                        timer: 1000
+                    }).then(() => {
+                        localStorage.removeItem("ini-key");
+                        this.props.LogoutSuccessAction()
+                        
+                    })
                 })
             }
-        }).catch((err)=>{
-            console.log("di axios error" + err)
         })
     }
 
-    // toggle={()=>(this.props.modalLogin:false)}
 
     render() { 
-        const {isOpen, setIsOpen} = this.state
-        const toggle = () => setIsOpen(!isOpen);
-
         return (
             <div>
-                {/* Modal TAMPILAN LOGIN */}
-                {
-                    this.props.modalLogin===false ?
-                    <div>
-                        {console.log(false)}
-                    </div>
-                    :
-                    <Modal isOpen={this.props.modalLogin}>
-                        {console.log(true)}
-                        <ModalHeader>Laman Login</ModalHeader>
-                        <ModalBody>
-                            <input type="text" ref="username" placeholder="Enter username" className="form-control mt-2" />
-                            <input type="password" ref="password" placeholder="Enter Password" className="form-control mt-2" />
-                        </ModalBody>
-                        <ModalFooter>
-                            <button  onClick={this.btnRegister} className="btn btn-primary mb-2" style={{height:"2rem", lineHeight:"14px"}}>Register</button>
-                            <button onClick={this.btnLogin} className="btn btn-primary mb-2" style={{height:"2rem", lineHeight:"14px"}}>Login</button>
-                        </ModalFooter>
-                    </Modal>
+            <Navbar className="bgnavbar" expand="md">
+                <NavbarBrand style={{color:"white"}} href="/"><i className="fas fa-film"></i> Movies-App</NavbarBrand>
+                <NavbarToggler onClick={()=>this.setState({setIsOpen:true})} />
+                <Collapse isOpen={this.state.isOpen} navbar>
+                <Nav className="ml-auto" navbar> 
+                    
+                {this.props.role===''?
+                    <NavItem>
+                            <Link to={"/lamanlogin"} style={{cursor:"pointer", color:"white"}} ><i className="fas fa-sign-in-alt"></i> Sign In</Link>
+                    </NavItem>
+                : this.props.role==='admin' ?
+                    (   <Nav>
+                        
+                    <UncontrolledDropdown nav inNavbar>
+                        <DropdownToggle nav caret style={{color:"white", fontWeight:"bolder", fontSize:"18px"}}>
+                        <i className="far fa-user"></i> {this.props.username}
+                        </DropdownToggle>
+                        <DropdownMenu right>
+                            <DropdownItem onClick={this.btnLogout}>
+                            <i className="fas fa-sign-out-alt"></i> Log Out
+                            </DropdownItem>
+                            <DropdownItem divider />
+                            <DropdownItem>
+                                <Link style={{color:'black', textDecoration:'none'}}to={"/manageadmin"}>
+                            <i className="far fa-window-restore"></i> Manage Admin</Link>
+                            </DropdownItem>
+                            <DropdownItem style={{color:'black', textDecoration:'none'}}>
+                                <i className="far fa-window-restore"></i> Manage Studio
+                            </DropdownItem>
+                        </DropdownMenu>
+                    </UncontrolledDropdown>
+                    </Nav>
+                    )
+
+                :
+                    <Nav>
+                    <NavItem>
+                            <Link to={"/cart"}> <FaCartPlus style={{color:'white', fontSize:"30"}} className="mr-2 pt-2" /></Link>
+                    </NavItem>
+                    <UncontrolledDropdown nav inNavbar>
+                        <DropdownToggle nav caret style={{color:"white", fontWeight:"bolder", fontSize:"18px"}}>
+                        <i className="far fa-user"></i> {this.props.username}
+                        </DropdownToggle>
+                        <DropdownMenu right>
+                            <DropdownItem onClick={this.btnLogout}>
+                                <i className="fas fa-sign-out-alt" ></i> Log Out
+                            </DropdownItem>
+                            <DropdownItem divider />
+                            <DropdownItem style={{color:'black', textDecoration:'none'}} >
+                                <i className="far fa-window-restore"></i>  History
+                            </DropdownItem>
+                            <DropdownItem><FaUserCog />
+                                <Link to={"/setting"} style={{color:'black', textDecoration:'none'}} >  Setting</Link>
+                            </DropdownItem>
+                        </DropdownMenu>
+                    </UncontrolledDropdown>
+                    </Nav>
                 }
 
-            {/* NAVBAR HEADER */}
-            <Navbar color="gray" light expand="md">
-                <NavbarBrand href="/">Movies-App</NavbarBrand>
-                <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} navbar>
-                <Nav className="ml-auto" navbar>
 
-                {this.props.role==='' ?
-                (
-                    <NavItem>
-                        <NavLink style={{cursor:"pointer"}} onClick={()=>this.props.OpenModalLogin(true)}>Login</NavLink>
-                    </NavItem>
-                ) : this.props.role==='admin' ?
-                (
-                    <NavItem>
-                        <NavLink className="d-inline" style={{cursor:"pointer"}} href="/manageadmin" >Manage Admin</NavLink>
-                        <NavLink className="font-weight-bold">{this.props.username}</NavLink>
-                    </NavItem>
-                ) : (
-                    <NavItem>
-                        <NavLink className="font-weight-bold">{this.props.username}</NavLink>
-                    </NavItem>
-                )
-                }
                 
                 </Nav>
                 </Collapse>
             </Navbar>
-            </div>
+        </div>
         );
     }
 }
 
 const mapStateToProps=(state)=>{
     return {
-        AuthLogin:state.Auth.login,
         username:state.Auth.username,
-        role:state.Auth.role,
-        modalLogin: state.modalLogin
+        role:state.Auth.role
     }
 }
-export default connect(mapStateToProps, {LoginSuccessAction, OpenModalLogin})(Header);
+export default connect(mapStateToProps, {LogoutSuccessAction}) (Header);

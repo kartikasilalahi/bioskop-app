@@ -125,7 +125,11 @@ class Moviedetail extends Component {
                             {this.state.datadetailfilm.sinopsis}
                         </div>
                         <div className="mt-3 ">
-                            <button className="mr-3 btn btn-primary" onClick={this.btnBeliTiket}><i className="fas fa-shopping-cart"></i> Beli Tiket</button>
+                            {
+                                this.props.role==="admin" ?
+                                null : 
+                                <button className="mr-3 btn btn-primary" onClick={this.btnBeliTiket}><i className="fas fa-shopping-cart"></i> Beli Tiket</button>
+                            }
                             <button className="mr-3 btn btn-outline-info " onClick={()=>this.setState({opentrailer:true})}><i className="fas fa-video"></i> Trailer</button>
                         </div>
                     </div>
@@ -137,7 +141,8 @@ class Moviedetail extends Component {
 
 const mapStateToProps=(state)=>{
     return {
-        AuthLogin:state.Auth.login
+        AuthLogin:state.Auth.login,
+        role:state.Auth.role
     }
 }
 export default connect(mapStateToProps)(Moviedetail);

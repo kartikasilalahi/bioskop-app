@@ -17,6 +17,8 @@ class Lamanlogin extends Component {
     onLoginClick = () => {
         var username = this.refs.username.value;
         var password = this.refs.password.value;
+        this.props.Loginthunk(username,password)
+        
         // if ((username === '' &&  password === '') || username === '' || password === '' ) {
         //     this.setState({error: "Belum terisi!"})
         //     Swal.fire({
@@ -25,8 +27,6 @@ class Lamanlogin extends Component {
         //         text: 'Harus terisi.'
         //     })
         // }
-        this.props.Loginthunk(username,password)
-
         // dibawah ini redux biasa
         // this.setState({ loading: true });
         // Axios.get(`${APIURL}users?username=${username}&password=${password}`)
@@ -75,7 +75,7 @@ class Lamanlogin extends Component {
                             this.props.Auth.loading ?
                             <Loader
                                 type='Puff'
-                                color='#00918e'
+                                color='black'
                                 height={100}
                                 width={100}
                             />

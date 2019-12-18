@@ -14,15 +14,12 @@ class Home extends Component {
         Axios.get(`${APIURL}movies`)
         .then((res)=>{
             this.setState({dataMovies:res.data})
-            // console.log(res.data)
-            // console.log(this.state.dataMovies[0].durasi)
         })
         .catch((err)=>{
             console.log(err)
         })
     }
     renderMovies=()=>{
-        
         return this.state.dataMovies.map((val,index)=>{
             const durasi=this.state.dataMovies[index].durasi
             // console.log(durasi)
@@ -32,8 +29,10 @@ class Home extends Component {
                         <div className="gambar" style={{zIndex:1}}>
                             <Link to={'/moviedetail/'+val.id}>
                                 <img src={val.image} className="card-img-top kartu gbr" alt={val.title}/>
+                                <center><button disabled className="btn btn-warning mx-auto p-0" 
+                                style={{zIndex:2, cursor:'text', position:"absolute", top:10, right:8, borderRadius:"100%", fontSize:"10px", fontWeight:"bolder", lineHeight:'14px', height:"35px", width:"35px"}}
+                                >{durasi}</button> </center>
                             </Link>
-                            
                         </div>
                     </div>
                         <div className="card-body">
@@ -47,8 +46,13 @@ class Home extends Component {
         })
     }
 
+    searchMovie=()=>{
+        var carimovie = this.refs.carimovie.value   
+    }
+
     render() { 
         return (
+            
             <div>
                 <Carousel>
                     <Carousel.Item>
@@ -62,12 +66,17 @@ class Home extends Component {
                     </Carousel.Item>
                 </Carousel>
 
-            <div className="my-2" style={{width:"100%"}}>
+            <div className="my-2 container" style={{width:"100%"}}>
+            {/* <div>
+                <input onChange={this.searchMovie} ref="carimovie" className="mt-5 mb-4 p-2" style={{marginLeft:'8%'}} type="text" placeholder="search movie.."/>
+            </div> */}
+
             <Icon name='user'/><h3 style={{textAlign:"left", paddingLeft:"10%", height:"8px", paddingTop:"5px", color:"white", fontWeight:"bold"}}>Now Playing</h3><br/>
                 <div className="row py-3 w-100" style={{paddingLeft:'8%', paddingRight:'8%'}}>
                     {this.renderMovies()}
                 </div>
             </div>
+            
             </div>
         );
     }

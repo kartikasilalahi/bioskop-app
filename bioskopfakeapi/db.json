@@ -14,15 +14,21 @@
     },
     {
       "username": "lala",
-      "password": "lala",
+      "password": "1",
       "role": "user",
       "id": 3
+    },
+    {
+      "username": "asd",
+      "password": "as",
+      "role": "user",
+      "id": 4
     },
     {
       "username": "abc",
       "password": "abc",
       "role": "user",
-      "id": 4
+      "id": 5
     }
   ],
   "studios": [
@@ -40,6 +46,16 @@
       "id": 3,
       "nama": "Studio 3",
       "jumlahKursi": 200
+    },
+    {
+      "nama": "Studio 4",
+      "jumlahKursi": "120",
+      "id": 4
+    },
+    {
+      "nama": "Studio 5",
+      "jumlahKursi": "123",
+      "id": 5
     }
   ],
   "movies": [
@@ -54,7 +70,7 @@
         18,
         20
       ],
-      "trailer": "",
+      "trailer": "https://www.youtube.com/embed/RSUq4VfWfjE",
       "studioId": "1",
       "sutradara": "Jake Kasdan",
       "durasi": "140 menit",
@@ -183,87 +199,207 @@
   ],
   "orders": [
     {
-      "userId": 2,
+      "userId": 3,
       "movieId": 2,
-      "totalharga": 50000,
+      "totalharga": 175000,
       "jadwal": 12,
-      "bayar": false,
-      "id": 1
+      "bayar": true,
+      "id": 1,
+      "tanggal": "18/12/2019"
     },
     {
-      "userId": 2,
+      "userId": 3,
       "movieId": 2,
-      "totalharga": 50000,
-      "jadwal": 12,
-      "bayar": false,
-      "id": 2
+      "totalharga": 100000,
+      "jadwal": 16,
+      "bayar": true,
+      "id": 2,
+      "tanggal": "18/12/2019"
     },
     {
-      "userId": 2,
+      "userId": 3,
       "movieId": 3,
       "totalharga": 50000,
       "jadwal": 12,
-      "bayar": false,
-      "id": 3
+      "bayar": true,
+      "id": 3,
+      "tanggal": "18/12/2019"
     },
     {
-      "userId": 2,
-      "movieId": 4,
+      "userId": 4,
+      "movieId": 2,
       "totalharga": 50000,
       "jadwal": 12,
-      "bayar": false,
-      "id": 4
+      "bayar": true,
+      "id": 4,
+      "tanggal": "18/12/2019"
+    },
+    {
+      "userId": 4,
+      "movieId": 3,
+      "totalharga": 50000,
+      "jadwal": 12,
+      "bayar": true,
+      "id": 5,
+      "tanggal": "18/12/2019"
+    },
+    {
+      "userId": 5,
+      "movieId": 2,
+      "totalharga": 75000,
+      "jadwal": 12,
+      "bayar": true,
+      "id": 6,
+      "tanggal": "18/12/2019"
+    },
+    {
+      "userId": 5,
+      "movieId": 6,
+      "totalharga": 75000,
+      "jadwal": 14,
+      "bayar": true,
+      "id": 7,
+      "tanggal": "18/12/2019"
     }
   ],
   "ordersDetails": [
     {
       "orderId": 1,
-      "seat": 9,
+      "seat": 6,
       "row": 0,
       "id": 1
     },
     {
       "orderId": 1,
-      "seat": 10,
+      "seat": 7,
       "row": 0,
       "id": 2
     },
     {
-      "orderId": 2,
-      "seat": 9,
-      "row": 1,
+      "orderId": 1,
+      "seat": 8,
+      "row": 0,
       "id": 3
     },
     {
-      "orderId": 2,
-      "seat": 10,
-      "row": 1,
+      "orderId": 1,
+      "seat": 9,
+      "row": 0,
       "id": 4
     },
     {
-      "orderId": 3,
-      "seat": 9,
-      "row": 2,
+      "orderId": 1,
+      "seat": 10,
+      "row": 0,
       "id": 5
     },
     {
-      "orderId": 3,
-      "seat": 10,
-      "row": 2,
+      "orderId": 1,
+      "seat": 11,
+      "row": 0,
       "id": 6
     },
     {
-      "orderId": 4,
-      "seat": 9,
-      "row": 6,
+      "orderId": 1,
+      "seat": 12,
+      "row": 0,
       "id": 7
     },
     {
-      "orderId": 4,
-      "seat": 10,
-      "row": 6,
+      "orderId": 2,
+      "seat": 9,
+      "row": 0,
       "id": 8
+    },
+    {
+      "orderId": 2,
+      "seat": 9,
+      "row": 1,
+      "id": 9
+    },
+    {
+      "orderId": 2,
+      "seat": 9,
+      "row": 2,
+      "id": 10
+    },
+    {
+      "orderId": 2,
+      "seat": 9,
+      "row": 3,
+      "id": 11
+    },
+    {
+      "orderId": 3,
+      "seat": 7,
+      "row": 0,
+      "id": 12
+    },
+    {
+      "orderId": 3,
+      "seat": 8,
+      "row": 0,
+      "id": 13
+    },
+    {
+      "orderId": 4,
+      "seat": 12,
+      "row": 1,
+      "id": 14
+    },
+    {
+      "orderId": 4,
+      "seat": 11,
+      "row": 1,
+      "id": 15
+    },
+    {
+      "orderId": 5,
+      "seat": 9,
+      "row": 0,
+      "id": 16
+    },
+    {
+      "orderId": 5,
+      "seat": 10,
+      "row": 0,
+      "id": 17
+    },
+    {
+      "orderId": 6,
+      "seat": 10,
+      "row": 2,
+      "id": 18
+    },
+    {
+      "orderId": 6,
+      "seat": 11,
+      "row": 2,
+      "id": 19
+    },
+    {
+      "orderId": 6,
+      "seat": 9,
+      "row": 2,
+      "id": 20
+    },
+    {
+      "orderId": 7,
+      "seat": 0,
+      "row": 0,
+      "id": 21
+    },
+    {
+      "orderId": 7,
+      "seat": 2,
+      "row": 0,
+      "id": 22
+    },
+    {
+      "orderId": 7,
+      "seat": 1,
+      "row": 0,
+      "id": 23
     }
-  ],
-  "transactions": []
+  ]
 }

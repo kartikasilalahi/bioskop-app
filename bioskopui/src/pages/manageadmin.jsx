@@ -7,7 +7,6 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom'
-// import Managestudio from '../pages/managestudio'
 
 const MySwal = withReactContent(Swal)
 
@@ -295,6 +294,10 @@ class ManageAdmin extends Component {
         })
     }
 
+    renderAddtOption=()=>{
+        // datastudioEdit
+    }
+
     // jalankan RENDER
     render() { 
         if (this.props.role==="admin"){
@@ -305,6 +308,9 @@ class ManageAdmin extends Component {
         }
         return (  
             <div className='container'> 
+                <div className='mt-3'>
+                    <h4 style={{color:'white', textAlign:'center'}}>Manage Data Movies</h4>
+                </div>
                 {/* MODAL EDIT */}
                 {   indexedit === -1 ? 
                     null
@@ -312,23 +318,26 @@ class ManageAdmin extends Component {
                     <Modal isOpen={this.state.modalEdit} toggle={()=>this.setState({modalEdit:false})} >
                         <ModalHeader>Edit Film {datafilm[indexedit].title}</ModalHeader>
                         <ModalBody>
-                            <input type="text" defaultValue={datafilm[indexedit].title} ref="editTitle" placeholder="edit title" className="form-control mt-2"/>
-                            <input type="text" defaultValue={datafilm[indexedit].image} ref="editImage" placeholder="edit image" className="form-control mt-2"/>
-                            <textarea rows="5" defaultValue={datafilm[indexedit].sinopsis} ref="editSinopsis" placeholder="edit sinopsis" className="form-control mt-2"/>
+                        {/* {console.log(datafilm[indexedit].trailer)} */}
+                            <input type="text" defaultValue={datafilm[indexedit].title} ref="editTitle"  className="form-control mt-2"/>
+                            <input type="text" defaultValue={datafilm[indexedit].image} ref="editImage"className="form-control mt-2"/>
+                            <textarea rows="5" defaultValue={datafilm[indexedit].sinopsis} ref="editSinopsis"  className="form-control mt-2"/>
                             Jadwal: &nbsp;
                             <div className="d-flex">
                                 {this.renderEditCheckBox(indexedit)}
                             </div>
-                            <input type="text" ref="editTrailer" placeholder="Trailer" className="form-control mt-2" />
+                            <input type="text" defaultValue={datafilm[indexedit].trailer} ref="editTrailer" className="form-control mt-2" />
                             <select ref="editStudio" className="form-control mt-2">
-                                <option value="1">Studio 1</option>
-                                <option value="2">Studio 2</option>
-                                <option value="3">Studio 3</option>
+                                {
+                                    this.state.datastudio.map((val)=>{
+                                        return ( <option value={val.id}>{val.nama}</option>)
+                                    })
+                                }
                             </select>
-                            <input defaultValue={datafilm[indexedit].sutradara} type="text" ref="editSutradara" placeholder="edit sutradara" className="form-control mt-2"/>
-                            <input defaultValue={datafilm[indexedit].durasi} type="text" ref="editDurasi" placeholder="edit durasi" className="form-control mt-2"/>
-                            <input defaultValue={datafilm[indexedit].genre} type="text" ref="editGenre" placeholder="edit genre" className="form-control mt-2"/>
-                            <input defaultValue={datafilm[indexedit].produksi} type="text" ref="editProduksi" placeholder="edit produksi" className="form-control mt-2"/>
+                            <input defaultValue={datafilm[indexedit].sutradara} type="text" ref="editSutradara" className="form-control mt-2"/>
+                            <input defaultValue={datafilm[indexedit].durasi} type="text" ref="editDurasi" className="form-control mt-2"/>
+                            <input defaultValue={datafilm[indexedit].genre} type="text" ref="editGenre" className="form-control mt-2"/>
+                            <input defaultValue={datafilm[indexedit].produksi} type="text" ref="editProduksi" className="form-control mt-2"/>
                         </ModalBody>
                         <ModalFooter>
                         <button  onClick={this.updateFilm} className="btn btn-success" >Save</button>

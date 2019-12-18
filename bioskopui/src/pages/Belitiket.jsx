@@ -25,9 +25,9 @@ class Belitiket extends Component {
 
     onJamChange = () => {
     // console.log(this.props.location.state)
-    var studioId = this.props.location.state.studioId;
-    var movieId = this.props.location.state.id;
-    Axios.get(`${APIURL}studios/${studioId}`)
+        var studioId = this.props.location.state.studioId;
+        var movieId = this.props.location.state.id;
+        Axios.get(`${APIURL}studios/${studioId}`)
         .then(res1 => {
             Axios.get(`${APIURL}orders?movieId=${movieId}&jadwal=${this.state.jam}`)
             .then(res2 => {
@@ -37,10 +37,10 @@ class Belitiket extends Component {
                         Axios.get(`${APIURL}ordersDetails?orderId=${val.id}`)
                     );
                 });
-            var arrAxios2 = [];
-            Axios.all(arrAxios)
+                var arrAxios2 = [];
+                Axios.all(arrAxios)
                 .then(res3 => {
-                    // console.log('res3', res3)
+                // console.log('res3', res3)
                     res3.forEach(val => {
                         arrAxios2.push(...val.data);
                     });
@@ -178,7 +178,7 @@ class Belitiket extends Component {
         }
         Axios.post(`${APIURL}orders`, dataorders)
         .then((res)=>{
-            console.log(res.data.id)
+            // console.log(res.data.id)
             var dataordersdetail=[]
             pilihan.forEach((val)=>{
                 dataordersdetail.push({
@@ -187,14 +187,14 @@ class Belitiket extends Component {
                     row:val.row
                 })
             })
-            console.log(dataordersdetail)
+            // console.log(dataordersdetail)
             var dataordersdetail2=[]
             dataordersdetail.forEach(val=>{
                 dataordersdetail2.push(Axios.post(`${APIURL}ordersDetails`, val))
             })
             Axios.all(dataordersdetail2)
             .then(res1=>{
-                console.log(res1)
+                // console.log(res1)
                 this.setState({openmodalcart:true})
             }).catch(err=>{
                 console.log(err)
@@ -205,8 +205,12 @@ class Belitiket extends Component {
         })
     }
 
+    redirecttohome=()=>{
+        window.location.reload()
+    }
+
     render() {
-        if (this.props.role==="user") {
+        if (this.props.role==="user"&&this.props.UserId) {
             if (this.state.redirecthome) {
                 return <Redirect to={'/'}/>
             }
@@ -217,12 +221,12 @@ class Belitiket extends Component {
                             Cart berhasil di tambahkan
                         </ModalBody>
                         <ModalFooter>
-                            <button className="btn btn-primary" onClick={()=>this.setState({redirecthome:true})}>OK</button>
+                            <button className="btn btn-primary" onClick={this.redirecttohome}>OK</button>
                         </ModalFooter>
                     </Modal>
                     
                     <center className="mt-1">
-                        <div className="mb-4">
+                        <div className="mb-4 mt-3">
                             <h4 className="p">{this.state.datamovie.title}</h4>
                         </div>
                         {this.state.loading ? null : this.renderbutton()}
@@ -236,13 +240,17 @@ class Belitiket extends Component {
                         }
                         <div>
                             {this.state.pilihan.length ? (
-                                <button onClick={this.onOrderClick} className="btn btn-primary mt-3">Order</button>
+                                <div>
+                                    <button onClick={this.onOrderClick} className="btn btn-primary mt-3 mr-5">Order</button>
+                                    <button onClick={()=>this.setState({pilihan:[]})} className="btn btn-danger mt-3 mr-5">cancel seat</button>
+                                </div>
                             ) : null}
                         </div>
                         
-
+                        
                     </center>
                     <div className="d-flex justify-content-center mt-4 pb-5">
+                        
                         <div>
                             {this.state.loading ? null : this.renderseat()}
                         </div>

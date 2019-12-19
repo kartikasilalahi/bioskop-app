@@ -260,6 +260,24 @@
       "bayar": true,
       "id": 7,
       "tanggal": "18/12/2019"
+    },
+    {
+      "userId": 3,
+      "movieId": 2,
+      "totalharga": 50000,
+      "jadwal": 12,
+      "bayar": true,
+      "id": 8,
+      "tanggal": "18/12/2019"
+    },
+    {
+      "userId": 5,
+      "movieId": 3,
+      "totalharga": 50000,
+      "jadwal": 12,
+      "bayar": true,
+      "id": 9,
+      "tanggal": "19/12/2019"
     }
   ],
   "ordersDetails": [
@@ -400,6 +418,30 @@
       "seat": 1,
       "row": 0,
       "id": 23
+    },
+    {
+      "orderId": 8,
+      "seat": 9,
+      "row": 3,
+      "id": 24
+    },
+    {
+      "orderId": 8,
+      "seat": 10,
+      "row": 3,
+      "id": 25
+    },
+    {
+      "orderId": 9,
+      "seat": 9,
+      "row": 1,
+      "id": 26
+    },
+    {
+      "orderId": 9,
+      "seat": 10,
+      "row": 1,
+      "id": 27
     }
   ]
 }

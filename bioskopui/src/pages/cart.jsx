@@ -72,10 +72,10 @@ class Cart extends Component {
             if (result.value) {
                 Swal.fire( 'Berhasil!', 'Orderan berhasil di checkout', 'success')
                     var today = new Date();
-                    var dd = String(today.getDate()).padStart(2, '0');
-                    var mm = String(today.getMonth() + 1).padStart(2, '0'); 
-                    var yyyy = today.getFullYear();
-                    today = dd + '/' + mm + '/' + yyyy;
+                    var day = String(today.getDate()).padStart(2, '0');
+                    var mounth = String(today.getMonth() + 1).padStart(2, '0'); 
+                    var year = today.getFullYear();
+                    today = day + '/' + mounth + '/' + year;
 
                     var datacheckout=this.state.datacart
                     for(var i = 0;i < datacheckout.length; i++){
